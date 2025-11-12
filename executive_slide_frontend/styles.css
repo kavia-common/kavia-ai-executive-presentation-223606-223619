@@ -1,0 +1,149 @@
+:root {
+  /* Light theme overrides for this single-slide deck */
+  --kavia-bg: #ffffff;
+  --kavia-text: #111827;
+  --kavia-title: #0b3b8f; /* dark blue */
+  --kavia-title-alt: #1e3a8a; /* acceptable equivalent */
+  --kavia-accent-orange: #f59e0b; /* subtle orange accent line */
+  --kavia-red: #ef4444;
+  --kavia-teal: #06b6d4;
+  --kavia-blue: #3b82f6;
+  --kavia-divider: #e5e7eb;
+  --kavia-muted: #374151;
+}
+
+.kavia-exec-slide {
+  background: var(--kavia-bg);
+  color: var(--kavia-text);
+  padding: 28px 36px 24px 36px;
+  border-radius: 12px;
+}
+
+.kavia-title {
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  color: var(--kavia-title);
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.4vw, 44px);
+}
+
+.kavia-title-accent {
+  height: 4px;
+  width: 220px;
+  background: var(--kavia-accent-orange);
+  border-radius: 999px;
+  margin: 6px 0 18px 0;
+}
+
+/* 3 equal columns */
+.kavia-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* Column base styling with vertical separators */
+.kavia-columns .col {
+  display: grid;
+  gap: 12px;
+  padding: 4px 12px 6px 0;
+  position: relative;
+}
+
+.kavia-columns .col:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--kavia-divider);
+}
+
+/* Column headers */
+.col-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--kavia-text);
+}
+
+.accent-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.accent-dot.red { background: var(--kavia-red); }
+.accent-dot.teal { background: var(--kavia-teal); }
+.accent-dot.blue { background: var(--kavia-blue); }
+.header-text { font-size: clamp(16px, 1.6vw, 18px); }
+
+/* Item list styles */
+.item-list,
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.item-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 10px;
+}
+
+.item-list .icon {
+  font-size: 16px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.item-list .content {
+  display: grid;
+  gap: 2px;
+}
+
+.item-list .label {
+  font-weight: 700;
+  color: var(--kavia-text);
+  font-size: 15px;
+}
+
+.item-list .desc {
+  color: var(--kavia-muted);
+  font-size: 14px;
+}
+
+/* Accent left border per column list */
+.item-list.red li { border-left: 3px solid var(--kavia-red); padding-left: 10px; }
+.item-list.teal li { border-left: 3px solid var(--kavia-teal); padding-left: 10px; }
+
+/* Checklist (right column) */
+.check-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding-left: 4px;
+}
+.check-list .check {
+  color: var(--kavia-blue);
+  font-weight: 800;
+}
+.check-list .check-text {
+  color: var(--kavia-text);
+  font-size: 15px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .kavia-columns { grid-template-columns: 1fr; }
+  .kavia-columns .col:not(:last-child)::after { display: none; }
+}

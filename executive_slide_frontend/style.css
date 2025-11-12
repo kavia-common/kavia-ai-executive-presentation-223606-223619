@@ -1,2 +1,4 @@
 /* style.css */
 @import "./theme/custom.css";
+/* Light theme for the executive single-slide deck */
+@import "./styles.css";
