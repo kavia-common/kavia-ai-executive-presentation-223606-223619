@@ -7,6 +7,11 @@
   --bg: #ffffff;
   --muted: #374151;
   --divider: #e5e7eb;
+
+  /* Bullet ring colors */
+  --ring-red: #ef4444;
+  --ring-teal: #06b6d4;
+  --ring-blue: #3b82f6;
 }
 
 /* Light theme */
@@ -21,6 +26,18 @@
   font-weight: 800;
   margin: 0;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Title accent logo */
+.title-accent {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
+  vertical-align: middle;
 }
 
 /* Orange divider under title */
@@ -51,15 +68,67 @@
 .col-blue h2 { color: #3b82f6; }
 
 /* Lists */
-ul { margin: 0; padding-left: 1rem; }
+ul { margin: 0; padding-left: 0; list-style: none; }
 .kavia-light li { color: var(--text); }
 .kavia-light .muted { color: var(--muted); }
 
-/* Checklist markers */
-.checks li::marker {
-  content: "✓ ";
-  color: #3b82f6;
-  font-weight: 700;
+/* Logo-icon bullet base */
+.logo-bullets {
+  display: grid;
+  gap: 8px;
+}
+.logo-bullets li {
+  position: relative;
+  padding-left: 32px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.logo-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
+  border-radius: 999px;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+/* Accent ring variants */
+.logo-bullets.red li::before {
+  box-shadow: 0 0 0 3px var(--ring-red);
+}
+.logo-bullets.teal li::before {
+  box-shadow: 0 0 0 3px var(--ring-teal);
+}
+.logo-bullets.blue li::before {
+  box-shadow: 0 0 0 3px var(--ring-blue);
+}
+
+/* Checklist markers replaced with logo-icon blue ring for consistency */
+.checks {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  padding-left: 0;
+}
+.checks li {
+  position: relative;
+  padding-left: 32px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.checks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px var(--ring-blue);
 }
 
 /* Optional subtle column separators on wide screens */
