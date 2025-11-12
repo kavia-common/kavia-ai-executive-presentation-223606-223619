@@ -14,36 +14,36 @@ css: |
   @import "./style.css";
 ---
 
-# <span class="title-accent" aria-hidden="true"></span> KAVIA AI: Accelerating Technical Scale
+# <span class="title-dot" aria-hidden="true"></span> <span class="title-brand">KAVIA AI: Accelerating Technical Scale</span>
 
 <div class="kavia-divider"></div>
 
 <div class="kavia-grid">
   <section class="col col-red">
     <h2>The Scaling Challenge</h2>
-    <ul class="logo-bullets red">
-      <li>Growth Sector Momentum: expansion, facilities, demand</li>
-      <li>Legacy Operations Reality: utilization gaps, expertise concentration</li>
-      <li>Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
+    <ul class="icon-bullets">
+      <li class="icon">Growth Sector Momentum: expansion, facilities, demand</li>
+      <li class="icon">Legacy Operations Reality: utilization gaps, expertise concentration</li>
+      <li class="icon">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
     </ul>
   </section>
 
   <section class="col col-teal">
     <h2>KAVIA Solution</h2>
-    <ul class="logo-bullets teal">
-      <li>Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
-      <li>Innovation Adoption: best practices, consistent standards</li>
-      <li>Faster Development: 50%+ productivity, eliminate bottlenecks</li>
+    <ul class="icon-bullets">
+      <li class="icon">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
+      <li class="icon">Innovation Adoption: best practices, consistent standards</li>
+      <li class="icon">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
     </ul>
   </section>
 
   <section class="col col-blue">
     <h2>Business Impact</h2>
-    <ul class="checks">
-      <li>Operational: Multi-site productivity in weeks</li>
-      <li>Financial: 2–4× faster ROI</li>
-      <li>Strategic: Compete in growth markets</li>
-      <li>Risk: Quality + agility</li>
+    <ul class="icon-bullets checks">
+      <li class="check">Operational: Multi-site productivity in weeks</li>
+      <li class="check">Financial: 2–4× faster ROI</li>
+      <li class="check">Strategic: Compete in growth markets</li>
+      <li class="check">Risk: Quality + agility</li>
     </ul>
   </section>
 </div>

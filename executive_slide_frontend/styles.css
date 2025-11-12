@@ -8,10 +8,8 @@
   --muted: #374151;
   --divider: #e5e7eb;
 
-  /* Bullet ring colors */
-  --ring-red: #ef4444;
-  --ring-teal: #06b6d4;
-  --ring-blue: #3b82f6;
+  /* Primary brand color derived from KAVIA AI logo (dark blue used in title and icons) */
+  --brand-color: var(--kavia-blue);
 }
 
 /* Light theme */
@@ -22,7 +20,7 @@
 
 /* Title styling on light */
 .kavia-light h1 {
-  color: var(--kavia-blue);
+  color: var(--brand-color);
   font-weight: 800;
   margin: 0;
   letter-spacing: -0.02em;
@@ -31,13 +29,18 @@
   gap: 10px;
 }
 
-/* Title accent logo */
-.title-accent {
+/* Title: colored brand text + small dot accent in brand color */
+.title-brand {
+  color: var(--brand-color);
+}
+.title-dot {
   display: inline-block;
-  width: 28px;
-  height: 28px;
-  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
-  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand-color);
+  margin-right: 6px;
+  transform: translateY(-2px);
 }
 
 /* Orange divider under title */
@@ -72,63 +75,49 @@ ul { margin: 0; padding-left: 0; list-style: none; }
 .kavia-light li { color: var(--text); }
 .kavia-light .muted { color: var(--muted); }
 
-/* Logo-icon bullet base */
-.logo-bullets {
+/* Icon-based bullets (standard shapes, not logo) */
+.icon-bullets {
   display: grid;
   gap: 8px;
-}
-.logo-bullets li {
-  position: relative;
-  padding-left: 32px;
-  line-height: 1.45;
-  color: var(--text);
-}
-.logo-bullets li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 22px;
-  height: 22px;
-  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
-  border-radius: 999px;
-  box-shadow: 0 0 0 0 transparent;
-}
-
-/* Accent ring variants */
-.logo-bullets.red li::before {
-  box-shadow: 0 0 0 3px var(--ring-red);
-}
-.logo-bullets.teal li::before {
-  box-shadow: 0 0 0 3px var(--ring-teal);
-}
-.logo-bullets.blue li::before {
-  box-shadow: 0 0 0 3px var(--ring-blue);
-}
-
-/* Checklist markers replaced with logo-icon blue ring for consistency */
-.checks {
-  display: grid;
-  gap: 8px;
-  list-style: none;
   padding-left: 0;
 }
-.checks li {
+.icon-bullets .icon,
+.icon-bullets .check {
   position: relative;
-  padding-left: 32px;
+  padding-left: 28px;
   line-height: 1.45;
-  color: var(--text);
+  color: var(--text); /* keep bullet text black */
 }
-.checks li::before {
+
+/* Default bullet icon: filled circle in brand color */
+.icon-bullets .icon::before {
   content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--brand-color);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
+}
+
+/* Check variant for Business Impact: checkmark in brand color within subtle ring */
+.icon-bullets.checks .check::before {
+  content: "✓";
   position: absolute;
   left: 0;
   top: 2px;
   width: 22px;
   height: 22px;
-  background: url("./public/assets/KaviaAI_logoMark.png") center/contain no-repeat;
   border-radius: 999px;
-  box-shadow: 0 0 0 3px var(--ring-blue);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 12px;
+  background: var(--brand-color);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 20%, #0000);
 }
 
 /* Optional subtle column separators on wide screens */
