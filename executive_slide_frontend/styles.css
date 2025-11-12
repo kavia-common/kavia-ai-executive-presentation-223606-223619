@@ -71,18 +71,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Further reduce spacing slightly to match smaller titles */
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  /* Adjust spacing to harmonize with 20% smaller titles */
+  padding-bottom: 4px;
+  margin-bottom: 6px;
   border-bottom: 1px solid var(--divider); /* subtle separator */
 }
 .exec-card-title {
   margin: 0;
   color: var(--brand-color); /* keep titles in brand color as requested */
   font-weight: 700;
-  /* Reduce header size about ~10% to satisfy request */
-  font-size: clamp(14px, 1.1vw, 16px);
-  letter-spacing: -0.01em;
+  /* Reduce header size by ~20% per request */
+  font-size: clamp(12px, 0.88vw, 13px);
+  letter-spacing: -0.005em;
+  line-height: 1.2;
 }
 
 /* Bullet list typography and spacing */
@@ -91,17 +92,17 @@
   padding: 0;
   margin: 0;
   display: grid;
-  /* Slightly tighter gap to match reduced header size */
-  gap: 6px; /* grid gutter for items */
+  /* Tighter gap to maintain overall rhythm with smaller headers */
+  gap: 5px; /* grid gutter for items */
 }
 .exec-points li {
   position: relative;
   /* Slightly reduce indent to maintain visual balance with smaller icon/text */
-  padding-left: 26px;
-  /* Slightly tighter leading to complement the smaller size while preserving readability */
-  line-height: 1.42;
+  padding-left: 25px;
+  /* Maintain readability while compacting the vertical rhythm */
+  line-height: 1.4;
   color: #000;           /* bullets in black */
-  /* Slightly reduced bullet text size */
+  /* Keep prior bullet text size for readability */
   font-size: clamp(13px, 0.98vw, 15px); /* improved scale */
 }
 
