@@ -40,7 +40,8 @@
   color: var(--brand-color); /* Title in brand color */
   font-weight: 800;
   letter-spacing: -0.02em;
-  font-size: clamp(28px, 3.2vw, 46px);
+  /* Slight reduction to maintain hierarchy with smaller columns */
+  font-size: clamp(27px, 3vw, 44px);
   line-height: 1.06;
 }
 .exec-title-underline {
@@ -70,15 +71,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
+  /* Slightly reduced spacing to balance with smaller titles */
+  padding-bottom: 7px;
+  margin-bottom: 9px;
   border-bottom: 1px solid var(--divider); /* subtle separator */
 }
 .exec-card-title {
   margin: 0;
   color: #000;
   font-weight: 700;
-  font-size: clamp(16px, 1.4vw, 20px);
+  /* Slightly reduced header size for better hierarchy on one-slide layout */
+  font-size: clamp(15px, 1.25vw, 18px);
   letter-spacing: -0.01em;
 }
 
@@ -88,14 +91,18 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px; /* grid gutter for items */
+  /* Slightly tighter gap to match reduced typography */
+  gap: 7px; /* grid gutter for items */
 }
 .exec-points li {
   position: relative;
-  padding-left: 28px;
-  line-height: 1.45;
+  /* Slightly reduce indent to maintain visual balance with smaller icon/text */
+  padding-left: 26px;
+  /* Slightly tighter leading to complement the smaller size while preserving readability */
+  line-height: 1.42;
   color: #000;           /* bullets in black */
-  font-size: clamp(13.5px, 1.05vw, 16px); /* improved scale */
+  /* Slightly reduced bullet text size */
+  font-size: clamp(13px, 0.98vw, 15px); /* improved scale */
 }
 
 /* Icon system: brand colored icons */
@@ -111,19 +118,20 @@
 }
 
 /* Specific symbolic icons using pseudo-elements */
-.icon-up::before    { content: "▲"; font-size: 14px; top: 4px; }
-.icon-gear::before  { content: "⚙"; font-size: 16px; top: 2px; }
-.icon-bolt::before  { content: "⚡"; font-size: 16px; top: 2px; }
-.icon-ff::before    { content: "⏩"; font-size: 16px; top: 2px; }
-.icon-bulb::before  { content: "💡"; font-size: 16px; top: 2px; }
-.icon-chart::before { content: "📊"; font-size: 16px; top: 2px; }
+.icon-up::before    { content: "▲"; font-size: 13px; top: 4px; }
+.icon-gear::before  { content: "⚙"; font-size: 15px; top: 2px; }
+.icon-bolt::before  { content: "⚡"; font-size: 15px; top: 2px; }
+.icon-ff::before    { content: "⏩"; font-size: 15px; top: 2px; }
+.icon-bulb::before  { content: "💡"; font-size: 15px; top: 2px; }
+.icon-chart::before { content: "📊"; font-size: 15px; top: 2px; }
 
 /* Checkmarks for Business Impact: brand-colored filled circle */
 .exec-points.checks li::before {
   content: "✓";
   color: #fff;
   font-weight: 900;
-  font-size: 12px;
+  /* Slightly smaller to match reduced list text */
+  font-size: 11px;
   background: var(--brand-color);
   border-radius: 999px;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
