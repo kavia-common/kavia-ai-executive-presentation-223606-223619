@@ -71,17 +71,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Slightly reduced spacing to balance with smaller titles */
-  padding-bottom: 7px;
-  margin-bottom: 9px;
+  /* Further reduce spacing slightly to match smaller titles */
+  padding-bottom: 6px;
+  margin-bottom: 8px;
   border-bottom: 1px solid var(--divider); /* subtle separator */
 }
 .exec-card-title {
   margin: 0;
-  color: #000;
+  color: var(--brand-color); /* keep titles in brand color as requested */
   font-weight: 700;
-  /* Slightly reduced header size for better hierarchy on one-slide layout */
-  font-size: clamp(15px, 1.25vw, 18px);
+  /* Reduce header size about ~10% to satisfy request */
+  font-size: clamp(14px, 1.1vw, 16px);
   letter-spacing: -0.01em;
 }
 
@@ -91,8 +91,8 @@
   padding: 0;
   margin: 0;
   display: grid;
-  /* Slightly tighter gap to match reduced typography */
-  gap: 7px; /* grid gutter for items */
+  /* Slightly tighter gap to match reduced header size */
+  gap: 6px; /* grid gutter for items */
 }
 .exec-points li {
   position: relative;
@@ -115,6 +115,12 @@
   display: grid;
   place-items: center;
   color: var(--brand-color); /* #F26A1C */
+}
+/* Defensive: any icon elements inside card headers stay brand color */
+.exec-card-head [class*="icon"],
+.exec-card-head svg,
+.exec-card-head i {
+  color: var(--brand-color);
 }
 
 /* Specific symbolic icons using pseudo-elements */
