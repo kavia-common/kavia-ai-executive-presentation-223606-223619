@@ -3,7 +3,7 @@ layout: cover
 theme: default
 title: "KAVIA AI: Accelerating Technical Scale"
 info: |
-  Single-slide executive overview with three vertical columns and KAVIA-inspired accents.
+  Single-slide executive overview with modern layout: strong title, brand underline, and three balanced card columns.
 class: kavia-light text-left
 mdc: true
 transition: fade
@@ -14,32 +14,41 @@ css: |
   @import "./style.css";
 ---
 
-# <span class="title-brand">KAVIA AI: Accelerating Technical Scale</span>
+<!-- Title area -->
+<div class="exec-title">
+  <h1 class="exec-title-text">KAVIA AI: Accelerating Technical Scale</h1>
+  <div class="exec-title-underline"></div>
+</div>
 
-<div class="kavia-divider"></div>
-
-<div class="kavia-grid">
-  <section class="col col-red">
-    <h2>The Scaling Challenge</h2>
-    <ul class="icon-bullets">
-      <li class="icon icon-up">Growth Sector Momentum: expansion, facilities, demand</li>
-      <li class="icon icon-gear">Legacy Operations Reality: utilization gaps, expertise concentration</li>
-      <li class="icon icon-bolt">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
+<!-- Three balanced columns as executive cards -->
+<div class="exec-grid">
+  <section class="exec-card" aria-labelledby="hdr-challenge">
+    <div class="exec-card-head">
+      <h2 id="hdr-challenge" class="exec-card-title">The Scaling Challenge</h2>
+    </div>
+    <ul class="exec-points">
+      <li class="icon-up">Growth Sector Momentum: expansion, facilities, demand</li>
+      <li class="icon-gear">Legacy Operations Reality: utilization gaps, expertise concentration</li>
+      <li class="icon-bolt">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
     </ul>
   </section>
 
-  <section class="col col-teal">
-    <h2>KAVIA Solution</h2>
-    <ul class="icon-bullets">
-      <li class="icon icon-ff">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
-      <li class="icon icon-bulb">Innovation Adoption: best practices, consistent standards</li>
-      <li class="icon icon-chart">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
+  <section class="exec-card" aria-labelledby="hdr-solution">
+    <div class="exec-card-head">
+      <h2 id="hdr-solution" class="exec-card-title">KAVIA Solution</h2>
+    </div>
+    <ul class="exec-points">
+      <li class="icon-ff">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
+      <li class="icon-bulb">Innovation Adoption: best practices, consistent standards</li>
+      <li class="icon-chart">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
     </ul>
   </section>
 
-  <section class="col col-blue">
-    <h2>Business Impact</h2>
-    <ul class="icon-bullets checks">
+  <section class="exec-card" aria-labelledby="hdr-impact">
+    <div class="exec-card-head">
+      <h2 id="hdr-impact" class="exec-card-title">Business Impact</h2>
+    </div>
+    <ul class="exec-points checks">
       <li class="check">Operational: Multi-site productivity in weeks</li>
       <li class="check">Financial: 2–4× faster ROI</li>
       <li class="check">Strategic: Compete in growth markets</li>

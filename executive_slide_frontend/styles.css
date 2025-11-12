@@ -3,16 +3,21 @@
   --kavia-teal: #06b6d4;
   --kavia-red: #ef4444;
   --kavia-orange: #f97316;
-  --text: #111111; /* default text black */
-  --bg: #ffffff;  /* enforce pure white background */
+  --text: #111111;
+  --bg: #ffffff;
   --muted: #374151;
   --divider: #e5e7eb;
 
   /* Primary brand color: KAVIA orange for title + icons as requested */
   --brand-color: #F26A1C;
+
+  /* Executive layout rhythm */
+  --exec-gutter: 20px;
+  --exec-radius: 14px;
+  --exec-card-shadow: 0 10px 26px rgba(0,0,0,0.12);
 }
 
-/* Reset any global dark backgrounds coming from theme/custom.css */
+/* Enforce white background and black text */
 :root, html, body, .slidev-root, .slidev-page, .slidev-layout, .slidev-layout.current {
   background: var(--bg) !important;
   color: var(--text) !important;
@@ -24,80 +29,77 @@
   color: var(--text) !important;
 }
 
-/* Title styling on light */
-.kavia-light h1 {
-  color: var(--brand-color);
-  font-weight: 800;
-  margin: 0;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
+/* Executive Title Block */
+.exec-title {
+  display: grid;
   gap: 10px;
+  margin-bottom: 18px;
 }
-
-/* Title: colored brand text, no adjacent icons/graphics */
-.title-brand {
-  color: var(--brand-color);
+.exec-title-text {
+  margin: 0;
+  color: var(--brand-color); /* Title in brand color */
   font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.2vw, 46px);
+  line-height: 1.06;
 }
-.title-dot { display: none; }
-
-/* Orange divider under title (use brand color to match request) */
-.kavia-divider {
+.exec-title-underline {
+  width: 240px;
   height: 4px;
-  background: var(--brand-color);
-  margin: 0.75rem 0 1.25rem;
+  background: var(--brand-color); /* brand underline */
   border-radius: 999px;
-  width: 220px;
 }
 
-/* Three-column grid */
-.kavia-grid {
+/* Three balanced columns grid */
+.exec-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: var(--exec-gutter);
   align-items: start;
 }
 
-/* Section headings */
-.col h2 {
+/* Executive cards (soft border + subtle shadow) */
+.exec-card {
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: var(--exec-radius);
+  padding: 16px 18px 18px 18px;
+  box-shadow: var(--exec-card-shadow);
+}
+.exec-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--divider); /* subtle separator */
+}
+.exec-card-title {
+  margin: 0;
+  color: #000;
   font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  color: var(--text); /* base text black */
+  font-size: clamp(16px, 1.4vw, 20px);
+  letter-spacing: -0.01em;
 }
-.col-red h2 { color: var(--kavia-red); }
-.col-teal h2 { color: var(--kavia-teal); }
-.col-blue h2 { color: #3b82f6; }
 
-/* Lists */
-ul { margin: 0; padding-left: 0; list-style: none !important; }
-.kavia-light li { color: var(--text) !important; }
-.kavia-light .muted { color: var(--muted); }
-
-/* Icon-based bullets (icons in brand color, text black) */
-.icon-bullets {
+/* Bullet list typography and spacing */
+.exec-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  gap: 6px; /* slightly tighter spacing to balance reduced font size */
-  padding-left: 0;
+  gap: 8px; /* grid gutter for items */
 }
-.icon-bullets .icon,
-.icon-bullets .check {
+.exec-points li {
   position: relative;
   padding-left: 28px;
   line-height: 1.45;
-  color: #000; /* bullets text stays black explicitly */
-  font-size: 0.9em; /* ~10%–12% reduction for bullet text */
+  color: #000;           /* bullets in black */
+  font-size: clamp(13.5px, 1.05vw, 16px); /* improved scale */
 }
 
-/* Prevent default list markers across all nested lists just in case */
-.icon-bullets,
-.icon-bullets li {
-  list-style: none !important;
-}
-
-/* Default bullet icon: none (we will use explicit icon spans or per-item pseudo icons) */
-.icon-bullets .icon::before {
-  content: ""; /* will be overridden by specific icon classes below */
+/* Icon system: brand colored icons */
+.exec-points li::before {
   position: absolute;
   left: 0;
   top: 2px;
@@ -105,63 +107,50 @@ ul { margin: 0; padding-left: 0; list-style: none !important; }
   height: 22px;
   display: grid;
   place-items: center;
-  color: var(--brand-color); /* #F26A1C via var */
-}
-
-/* Icon span helper when using inline <span class="icon-symbol"> */
-.icon-symbol {
   color: var(--brand-color); /* #F26A1C */
-  font-weight: 800;
-  margin-right: 6px;
 }
 
-/* Specific symbolic icons using pseudo-elements (brand-colored) */
-.icon-up::before       { content: "▲"; color: var(--brand-color); font-size: 14px; top: 4px; }
-.icon-gear::before     { content: "⚙"; color: var(--brand-color); font-size: 16px; top: 2px; }
-.icon-bolt::before     { content: "⚡"; color: var(--brand-color); font-size: 16px; top: 2px; }
-.icon-ff::before       { content: "⏩"; color: var(--brand-color); font-size: 16px; top: 2px; }
-.icon-bulb::before     { content: "💡"; color: var(--brand-color); font-size: 16px; top: 2px; }
-.icon-chart::before    { content: "📊"; color: var(--brand-color); font-size: 16px; top: 2px; }
+/* Specific symbolic icons using pseudo-elements */
+.icon-up::before    { content: "▲"; font-size: 14px; top: 4px; }
+.icon-gear::before  { content: "⚙"; font-size: 16px; top: 2px; }
+.icon-bolt::before  { content: "⚡"; font-size: 16px; top: 2px; }
+.icon-ff::before    { content: "⏩"; font-size: 16px; top: 2px; }
+.icon-bulb::before  { content: "💡"; font-size: 16px; top: 2px; }
+.icon-chart::before { content: "📊"; font-size: 16px; top: 2px; }
 
-/* Check variant for Business Impact: checkmark in brand color within subtle ring */
-.icon-bullets.checks .check {
-  padding-left: 28px;
-  font-size: 0.9em; /* match reduced bullet font size */
-}
-.icon-bullets.checks .check::before {
+/* Checkmarks for Business Impact: brand-colored filled circle */
+.exec-points.checks li::before {
   content: "✓";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
+  color: #fff;
   font-weight: 900;
   font-size: 12px;
-  background: var(--brand-color); /* #F26A1C */
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 20%, #0000);
+  background: var(--brand-color);
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
 }
 
-/* Optional subtle column separators on wide screens */
-@media (min-width: 1025px) {
-  .kavia-grid .col:not(:last-child) {
+/* Column separators (subtle) for wide screens */
+@media (min-width: 1100px) {
+  .exec-grid > .exec-card:not(:last-child) {
     position: relative;
   }
-  .kavia-grid .col:not(:last-child)::after {
+  .exec-grid > .exec-card:not(:last-child)::after {
     content: "";
     position: absolute;
-    right: -0.625rem;
-    top: 0.25rem;
-    bottom: 0.25rem;
+    right: calc(-1 * var(--exec-gutter) / 2);
+    top: 8px;
+    bottom: 8px;
     width: 1px;
     background: var(--divider);
   }
 }
 
-/* Responsive: stack columns on narrow screens */
+/* Responsive stacking */
 @media (max-width: 1024px) {
-  .kavia-grid { grid-template-columns: 1fr; }
+  .exec-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* Remove any legacy logo-as-icon patterns (defensive) */
+.title-dot, .logo-icon, .title-logo { display: none !important; }
