@@ -35,20 +35,12 @@
   gap: 10px;
 }
 
-/* Title: colored brand text + small dot accent in brand color */
+/* Title: colored brand text, no adjacent icons/graphics */
 .title-brand {
   color: var(--brand-color);
   font-weight: 800;
 }
-.title-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--brand-color);
-  margin-right: 6px;
-  transform: translateY(-2px);
-}
+.title-dot { display: none; }
 
 /* Orange divider under title (use brand color to match request) */
 .kavia-divider {
@@ -78,14 +70,14 @@
 .col-blue h2 { color: #3b82f6; }
 
 /* Lists */
-ul { margin: 0; padding-left: 0; list-style: none; }
+ul { margin: 0; padding-left: 0; list-style: none !important; }
 .kavia-light li { color: var(--text) !important; }
 .kavia-light .muted { color: var(--muted); }
 
 /* Icon-based bullets (icons in brand color, text black) */
 .icon-bullets {
   display: grid;
-  gap: 8px;
+  gap: 6px; /* slightly tighter spacing to balance reduced font size */
   padding-left: 0;
 }
 .icon-bullets .icon,
@@ -94,6 +86,13 @@ ul { margin: 0; padding-left: 0; list-style: none; }
   padding-left: 28px;
   line-height: 1.45;
   color: #000; /* bullets text stays black explicitly */
+  font-size: 0.9em; /* ~10%–12% reduction for bullet text */
+}
+
+/* Prevent default list markers across all nested lists just in case */
+.icon-bullets,
+.icon-bullets li {
+  list-style: none !important;
 }
 
 /* Default bullet icon: none (we will use explicit icon spans or per-item pseudo icons) */
@@ -106,12 +105,12 @@ ul { margin: 0; padding-left: 0; list-style: none; }
   height: 22px;
   display: grid;
   place-items: center;
-  color: var(--brand-color);
+  color: var(--brand-color); /* #F26A1C via var */
 }
 
 /* Icon span helper when using inline <span class="icon-symbol"> */
 .icon-symbol {
-  color: var(--brand-color);
+  color: var(--brand-color); /* #F26A1C */
   font-weight: 800;
   margin-right: 6px;
 }
@@ -127,6 +126,7 @@ ul { margin: 0; padding-left: 0; list-style: none; }
 /* Check variant for Business Impact: checkmark in brand color within subtle ring */
 .icon-bullets.checks .check {
   padding-left: 28px;
+  font-size: 0.9em; /* match reduced bullet font size */
 }
 .icon-bullets.checks .check::before {
   content: "✓";
@@ -141,7 +141,7 @@ ul { margin: 0; padding-left: 0; list-style: none; }
   color: #ffffff;
   font-weight: 900;
   font-size: 12px;
-  background: var(--brand-color);
+  background: var(--brand-color); /* #F26A1C */
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 20%, #0000);
 }
 

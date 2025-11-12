@@ -14,7 +14,7 @@ css: |
   @import "./style.css";
 ---
 
-# <span class="title-dot" aria-hidden="true"></span> <span class="title-brand">KAVIA AI: Accelerating Technical Scale</span>
+# <span class="title-brand">KAVIA AI: Accelerating Technical Scale</span>
 
 <div class="kavia-divider"></div>
 
