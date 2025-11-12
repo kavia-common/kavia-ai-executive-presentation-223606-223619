@@ -94,85 +94,95 @@
   line-height: 1.2;
 }
 
-/* Bullet list typography and spacing */
-.exec-points {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Hide any list markers globally within slide to be safe */
+ul, ol {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
 
-  /* Use grid for uniform vertical rhythm; let it occupy remaining space */
+/* New icon-text rows container (replaces .exec-points lists) */
+.exec-rows {
+  /* Grid enforces uniform spacing and parallel alignment across columns */
   display: grid;
-  gap: 8px; /* consistent inter-item spacing to prevent drift */
-  flex: 1 1 auto; /* stretch to fill available height */
-  align-content: start; /* keep items anchored to top */
-  min-height: 180px; /* consistent body height across cards to align bullets */
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+
+  /* Stretch to fill remaining height in card body for equal-height cards */
+  flex: 1 1 auto;
+  align-content: start;
+
+  /* Set a baseline min-height so all columns align by rows */
+  min-height: 196px;
 }
 
-/* Normalize bullet items for alignment */
-.exec-points li {
+/* Individual row with icon + text (no <li>) */
+.exec-row {
   position: relative;
-  padding-left: 25px;
-  line-height: 1.4;         /* normalized line height */
-  margin: 0;                /* prevent UA default margins causing drift */
-  color: #000;              /* bullets text in black */
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 6px;
+
+  /* Text styling */
+  color: #000;
   font-size: clamp(13px, 0.98vw, 15px);
+  line-height: 1.4;
 }
 
-/* Icon system: brand colored icons */
-.exec-points li::before {
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 22px;
-  height: 22px;
+/* Icon cell via pseudo-element on the row */
+.exec-row::before {
+  content: "";
   display: grid;
   place-items: center;
-  color: var(--brand-color); /* #F26A1C */
-}
-
-/* Optional footer area if needed in future: keep from stretching */
-.exec-card-foot {
-  margin-top: 10px;
-  flex: 0 0 auto;
-}
-/* Defensive: any icon elements inside card headers stay brand color */
-.exec-card-head [class*="icon"],
-.exec-card-head svg,
-.exec-card-head i {
   color: var(--brand-color);
+  width: 22px;
+  height: 22px;
+  line-height: 1;
+  font-weight: 700;
 }
 
-/* Card body stretches and maintains consistent minimum height */
+/* Ensure the text cell aligns well */
+.exec-row { padding-left: 0; }
+
+/* Keep card body stretch */
 .exec-card-body {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 200px; /* baseline consistent body height to align bullets */
+  min-height: 200px;
 }
 
-/* Specific symbolic icons using pseudo-elements */
-.icon-up::before    { content: "▲"; font-size: 13px; top: 4px; }
-.icon-gear::before  { content: "⚙"; font-size: 15px; top: 2px; }
-.icon-bolt::before  { content: "⚡"; font-size: 15px; top: 2px; }
-.icon-ff::before    { content: "⏩"; font-size: 15px; top: 2px; }
-.icon-bulb::before  { content: "💡"; font-size: 15px; top: 2px; }
-.icon-chart::before { content: "📊"; font-size: 15px; top: 2px; }
+/* Icon glyph assignments */
+.icon-up::before    { content: "▲"; font-size: 13px; }
+.icon-gear::before  { content: "⚙"; font-size: 15px; }
+.icon-bolt::before  { content: "⚡"; font-size: 15px; }
+.icon-ff::before    { content: "⏩"; font-size: 15px; }
+.icon-bulb::before  { content: "💡"; font-size: 15px; }
+.icon-chart::before { content: "📊"; font-size: 15px; }
 
-/* Checkmarks for Business Impact: brand-colored filled circle */
-.exec-points.checks {
-  /* Slightly larger min-height to account for potential 4th bullet while keeping parallel alignment */
-  min-height: 196px;
-}
-
-.exec-points.checks li::before {
+/* Checkmark variant for Business Impact */
+.exec-rows.checks { min-height: 196px; }
+.exec-row.check::before {
   content: "✓";
   color: #fff;
-  font-weight: 900;
   font-size: 11px;
   background: var(--brand-color);
   border-radius: 999px;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  margin-top: 2px;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
+}
+
+/* Defensive: any icon elements inside card headers stay brand color */
+.exec-card-head [class*="icon"],
+.exec-card-head svg,
+.exec-card-head i {
+  color: var(--brand-color);
 }
 
 /* Column separators (subtle) for wide screens */
@@ -201,3 +211,13 @@
 
 /* Remove any legacy logo-as-icon patterns (defensive) */
 .title-dot, .logo-icon, .title-logo { display: none !important; }
+
+/* Final defensive reset: ensure no default bullets/markers appear */
+.slidev-page ul, 
+.slidev-page ol, 
+.exec-card ul, 
+.exec-card ol {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}

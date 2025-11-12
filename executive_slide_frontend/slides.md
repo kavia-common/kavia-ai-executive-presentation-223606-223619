@@ -22,18 +22,18 @@ css: |
   <div class="exec-title-underline"></div>
 </div>
 
-<!-- Three balanced columns as executive cards -->
+<!-- Three balanced columns as executive cards (no lists; icon-text rows) -->
 <div class="exec-grid">
   <section class="exec-card" aria-labelledby="hdr-challenge">
     <div class="exec-card-head">
       <h2 id="hdr-challenge" class="exec-card-title">The Scaling Challenge</h2>
     </div>
     <div class="exec-card-body">
-      <ul class="exec-points">
-        <li class="icon-up">Growth Sector Momentum: expansion, facilities, demand</li>
-        <li class="icon-gear">Legacy Operations Reality: utilization gaps, expertise concentration</li>
-        <li class="icon-bolt">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
-      </ul>
+      <div class="exec-rows" role="list">
+        <div class="exec-row icon-up" role="listitem">Growth Sector Momentum: expansion, facilities, demand</div>
+        <div class="exec-row icon-gear" role="listitem">Legacy Operations Reality: utilization gaps, expertise concentration</div>
+        <div class="exec-row icon-bolt" role="listitem">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</div>
+      </div>
     </div>
   </section>
 
@@ -42,11 +42,11 @@ css: |
       <h2 id="hdr-solution" class="exec-card-title">KAVIA Solution</h2>
     </div>
     <div class="exec-card-body">
-      <ul class="exec-points">
-        <li class="icon-ff">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
-        <li class="icon-bulb">Innovation Adoption: best practices, consistent standards</li>
-        <li class="icon-chart">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
-      </ul>
+      <div class="exec-rows" role="list">
+        <div class="exec-row icon-ff" role="listitem">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</div>
+        <div class="exec-row icon-bulb" role="listitem">Innovation Adoption: best practices, consistent standards</div>
+        <div class="exec-row icon-chart" role="listitem">Faster Development: 50%+ productivity, eliminate bottlenecks</div>
+      </div>
     </div>
   </section>
 
@@ -55,12 +55,12 @@ css: |
       <h2 id="hdr-impact" class="exec-card-title">Business Impact</h2>
     </div>
     <div class="exec-card-body">
-      <ul class="exec-points checks">
-        <li class="check">Operational: Multi-site productivity in weeks</li>
-        <li class="check">Financial: 2–4× faster ROI</li>
-        <li class="check">Strategic: Compete in growth markets</li>
-        <li class="check">Risk: Quality + agility</li>
-      </ul>
+      <div class="exec-rows checks" role="list">
+        <div class="exec-row check" role="listitem">Operational: Multi-site productivity in weeks</div>
+        <div class="exec-row check" role="listitem">Financial: 2–4× faster ROI</div>
+        <div class="exec-row check" role="listitem">Strategic: Compete in growth markets</div>
+        <div class="exec-row check" role="listitem">Risk: Quality + agility</div>
+      </div>
     </div>
   </section>
 </div>
