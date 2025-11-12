@@ -3,19 +3,25 @@
   --kavia-teal: #06b6d4;
   --kavia-red: #ef4444;
   --kavia-orange: #f97316;
-  --text: #111827;
-  --bg: #ffffff;
+  --text: #111111; /* default text black */
+  --bg: #ffffff;  /* enforce pure white background */
   --muted: #374151;
   --divider: #e5e7eb;
 
-  /* Primary brand color derived from KAVIA AI logo (dark blue used in title and icons) */
-  --brand-color: var(--kavia-blue);
+  /* Primary brand color: KAVIA orange for title + icons as requested */
+  --brand-color: #F26A1C;
 }
 
-/* Light theme */
+/* Reset any global dark backgrounds coming from theme/custom.css */
+:root, html, body, .slidev-root, .slidev-page, .slidev-layout, .slidev-layout.current {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Light theme root */
 .kavia-light {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
 /* Title styling on light */
@@ -32,6 +38,7 @@
 /* Title: colored brand text + small dot accent in brand color */
 .title-brand {
   color: var(--brand-color);
+  font-weight: 800;
 }
 .title-dot {
   display: inline-block;
@@ -43,10 +50,10 @@
   transform: translateY(-2px);
 }
 
-/* Orange divider under title */
+/* Orange divider under title (use brand color to match request) */
 .kavia-divider {
   height: 4px;
-  background: var(--kavia-orange);
+  background: var(--brand-color);
   margin: 0.75rem 0 1.25rem;
   border-radius: 999px;
   width: 220px;
@@ -64,18 +71,18 @@
 .col h2 {
   font-weight: 700;
   margin: 0 0 0.5rem 0;
+  color: var(--text); /* base text black */
 }
-
 .col-red h2 { color: var(--kavia-red); }
 .col-teal h2 { color: var(--kavia-teal); }
 .col-blue h2 { color: #3b82f6; }
 
 /* Lists */
 ul { margin: 0; padding-left: 0; list-style: none; }
-.kavia-light li { color: var(--text); }
+.kavia-light li { color: var(--text) !important; }
 .kavia-light .muted { color: var(--muted); }
 
-/* Icon-based bullets (standard shapes, not logo) */
+/* Icon-based bullets (icons in brand color, text black) */
 .icon-bullets {
   display: grid;
   gap: 8px;
@@ -86,23 +93,41 @@ ul { margin: 0; padding-left: 0; list-style: none; }
   position: relative;
   padding-left: 28px;
   line-height: 1.45;
-  color: var(--text); /* keep bullet text black */
+  color: #000; /* bullets text stays black explicitly */
 }
 
-/* Default bullet icon: filled circle in brand color */
+/* Default bullet icon: none (we will use explicit icon spans or per-item pseudo icons) */
 .icon-bullets .icon::before {
-  content: "";
+  content: ""; /* will be overridden by specific icon classes below */
   position: absolute;
   left: 0;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--brand-color);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-color);
 }
 
+/* Icon span helper when using inline <span class="icon-symbol"> */
+.icon-symbol {
+  color: var(--brand-color);
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+/* Specific symbolic icons using pseudo-elements (brand-colored) */
+.icon-up::before       { content: "▲"; color: var(--brand-color); font-size: 14px; top: 4px; }
+.icon-gear::before     { content: "⚙"; color: var(--brand-color); font-size: 16px; top: 2px; }
+.icon-bolt::before     { content: "⚡"; color: var(--brand-color); font-size: 16px; top: 2px; }
+.icon-ff::before       { content: "⏩"; color: var(--brand-color); font-size: 16px; top: 2px; }
+.icon-bulb::before     { content: "💡"; color: var(--brand-color); font-size: 16px; top: 2px; }
+.icon-chart::before    { content: "📊"; color: var(--brand-color); font-size: 16px; top: 2px; }
+
 /* Check variant for Business Impact: checkmark in brand color within subtle ring */
+.icon-bullets.checks .check {
+  padding-left: 28px;
+}
 .icon-bullets.checks .check::before {
   content: "✓";
   position: absolute;

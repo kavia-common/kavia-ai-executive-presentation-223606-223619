@@ -22,18 +22,18 @@ css: |
   <section class="col col-red">
     <h2>The Scaling Challenge</h2>
     <ul class="icon-bullets">
-      <li class="icon">Growth Sector Momentum: expansion, facilities, demand</li>
-      <li class="icon">Legacy Operations Reality: utilization gaps, expertise concentration</li>
-      <li class="icon">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
+      <li class="icon icon-up">Growth Sector Momentum: expansion, facilities, demand</li>
+      <li class="icon icon-gear">Legacy Operations Reality: utilization gaps, expertise concentration</li>
+      <li class="icon icon-bolt">Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
     </ul>
   </section>
 
   <section class="col col-teal">
     <h2>KAVIA Solution</h2>
     <ul class="icon-bullets">
-      <li class="icon">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
-      <li class="icon">Innovation Adoption: best practices, consistent standards</li>
-      <li class="icon">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
+      <li class="icon icon-ff">Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
+      <li class="icon icon-bulb">Innovation Adoption: best practices, consistent standards</li>
+      <li class="icon icon-chart">Faster Development: 50%+ productivity, eliminate bottlenecks</li>
     </ul>
   </section>
 
