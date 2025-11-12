@@ -1,149 +1,84 @@
 :root {
-  /* Light theme overrides for this single-slide deck */
-  --kavia-bg: #ffffff;
-  --kavia-text: #111827;
-  --kavia-title: #0b3b8f; /* dark blue */
-  --kavia-title-alt: #1e3a8a; /* acceptable equivalent */
-  --kavia-accent-orange: #f59e0b; /* subtle orange accent line */
-  --kavia-red: #ef4444;
+  --kavia-blue: #1e3a8a;
   --kavia-teal: #06b6d4;
-  --kavia-blue: #3b82f6;
-  --kavia-divider: #e5e7eb;
-  --kavia-muted: #374151;
+  --kavia-red: #ef4444;
+  --kavia-orange: #f97316;
+  --text: #111827;
+  --bg: #ffffff;
+  --muted: #374151;
+  --divider: #e5e7eb;
 }
 
-.kavia-exec-slide {
-  background: var(--kavia-bg);
-  color: var(--kavia-text);
-  padding: 28px 36px 24px 36px;
-  border-radius: 12px;
+/* Light theme */
+.kavia-light {
+  background: var(--bg);
+  color: var(--text);
 }
 
-.kavia-title {
-  margin: 0 0 8px 0;
-  font-weight: 800;
-  color: var(--kavia-title);
-  letter-spacing: -0.02em;
-  font-size: clamp(28px, 3.4vw, 44px);
-}
-
-.kavia-title-accent {
-  height: 4px;
-  width: 220px;
-  background: var(--kavia-accent-orange);
-  border-radius: 999px;
-  margin: 6px 0 18px 0;
-}
-
-/* 3 equal columns */
-.kavia-columns {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-
-/* Column base styling with vertical separators */
-.kavia-columns .col {
-  display: grid;
-  gap: 12px;
-  padding: 4px 12px 6px 0;
-  position: relative;
-}
-
-.kavia-columns .col:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -12px;
-  top: 4px;
-  bottom: 4px;
-  width: 1px;
-  background: var(--kavia-divider);
-}
-
-/* Column headers */
-.col-header {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  color: var(--kavia-text);
-}
-
-.accent-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  display: inline-block;
-}
-.accent-dot.red { background: var(--kavia-red); }
-.accent-dot.teal { background: var(--kavia-teal); }
-.accent-dot.blue { background: var(--kavia-blue); }
-.header-text { font-size: clamp(16px, 1.6vw, 18px); }
-
-/* Item list styles */
-.item-list,
-.check-list {
-  list-style: none;
-  padding: 0;
-  margin: 2px 0 0 0;
-  display: grid;
-  gap: 12px;
-}
-
-.item-list li {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  align-items: start;
-  gap: 10px;
-}
-
-.item-list .icon {
-  font-size: 16px;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-.item-list .content {
-  display: grid;
-  gap: 2px;
-}
-
-.item-list .label {
-  font-weight: 700;
-  color: var(--kavia-text);
-  font-size: 15px;
-}
-
-.item-list .desc {
-  color: var(--kavia-muted);
-  font-size: 14px;
-}
-
-/* Accent left border per column list */
-.item-list.red li { border-left: 3px solid var(--kavia-red); padding-left: 10px; }
-.item-list.teal li { border-left: 3px solid var(--kavia-teal); padding-left: 10px; }
-
-/* Checklist (right column) */
-.check-list li {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  align-items: center;
-  gap: 8px;
-  padding-left: 4px;
-}
-.check-list .check {
+/* Title styling on light */
+.kavia-light h1 {
   color: var(--kavia-blue);
   font-weight: 800;
-}
-.check-list .check-text {
-  color: var(--kavia-text);
-  font-size: 15px;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-/* Responsive tweaks */
+/* Orange divider under title */
+.kavia-divider {
+  height: 4px;
+  background: var(--kavia-orange);
+  margin: 0.75rem 0 1.25rem;
+  border-radius: 999px;
+  width: 220px;
+}
+
+/* Three-column grid */
+.kavia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Section headings */
+.col h2 {
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.col-red h2 { color: var(--kavia-red); }
+.col-teal h2 { color: var(--kavia-teal); }
+.col-blue h2 { color: #3b82f6; }
+
+/* Lists */
+ul { margin: 0; padding-left: 1rem; }
+.kavia-light li { color: var(--text); }
+.kavia-light .muted { color: var(--muted); }
+
+/* Checklist markers */
+.checks li::marker {
+  content: "✓ ";
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+/* Optional subtle column separators on wide screens */
+@media (min-width: 1025px) {
+  .kavia-grid .col:not(:last-child) {
+    position: relative;
+  }
+  .kavia-grid .col:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -0.625rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 1px;
+    background: var(--divider);
+  }
+}
+
+/* Responsive: stack columns on narrow screens */
 @media (max-width: 1024px) {
-  .kavia-columns { grid-template-columns: 1fr; }
-  .kavia-columns .col:not(:last-child)::after { display: none; }
+  .kavia-grid { grid-template-columns: 1fr; }
 }

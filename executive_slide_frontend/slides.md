@@ -1,10 +1,10 @@
 ---
-# Deck settings
+layout: cover
 theme: default
 title: "KAVIA AI: Accelerating Technical Scale"
 info: |
   Single-slide executive overview with three vertical columns and KAVIA-inspired accents.
-class: text-left
+class: kavia-light text-left
 mdc: true
 transition: fade
 fonts:
@@ -14,82 +14,36 @@ css: |
   @import "./style.css";
 ---
 
-<div class="kavia-exec-slide">
-  <h1 class="kavia-title">KAVIA AI: Accelerating Technical Scale</h1>
-  <div class="kavia-title-accent"></div>
+# KAVIA AI: Accelerating Technical Scale
 
-  <div class="kavia-columns">
-    <div class="col col-left">
-      <div class="col-header">
-        <span class="accent-dot red"></span>
-        <span class="header-text">The Scaling Challenge</span>
-      </div>
-      <ul class="item-list red">
-        <li>
-          <span class="icon">↑</span>
-          <div class="content">
-            <div class="label">Growth Sector Momentum</div>
-            <div class="desc">expansion, facilities, demand</div>
-          </div>
-        </li>
-        <li>
-          <span class="icon">⚙</span>
-          <div class="content">
-            <div class="label">Legacy Operations Reality</div>
-            <div class="desc">utilization gaps, expertise concentration</div>
-          </div>
-        </li>
-        <li>
-          <span class="icon">⚡</span>
-          <div class="content">
-            <div class="label">Capacity-Knowledge Mismatch</div>
-            <div class="desc">6-month training, 3-5× workforce needed</div>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="kavia-divider"></div>
 
-    <div class="col col-middle">
-      <div class="col-header">
-        <span class="accent-dot teal"></span>
-        <span class="header-text">KAVIA Solution</span>
-      </div>
-      <ul class="item-list teal">
-        <li>
-          <span class="icon">⏩</span>
-          <div class="content">
-            <div class="label">Accelerated Learning</div>
-            <div class="desc">2-4 weeks onboarding, parallel deployment</div>
-          </div>
-        </li>
-        <li>
-          <span class="icon">💡</span>
-          <div class="content">
-            <div class="label">Innovation Adoption</div>
-            <div class="desc">best practices, consistent standards</div>
-          </div>
-        </li>
-        <li>
-          <span class="icon">📊</span>
-          <div class="content">
-            <div class="label">Faster Development</div>
-            <div class="desc">50%+ productivity, eliminate bottlenecks</div>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="kavia-grid">
+  <section class="col col-red">
+    <h2>The Scaling Challenge</h2>
+    <ul>
+      <li>↑ Growth Sector Momentum: expansion, facilities, demand</li>
+      <li>⚙ Legacy Operations Reality: utilization gaps, expertise concentration</li>
+      <li>⚡ Capacity–Knowledge Mismatch: 6-month training, 3–5× workforce needed</li>
+    </ul>
+  </section>
 
-    <div class="col col-right">
-      <div class="col-header">
-        <span class="accent-dot blue"></span>
-        <span class="header-text">Business Impact</span>
-      </div>
-      <ul class="check-list blue">
-        <li><span class="check">✓</span><span class="check-text">Operational: Multi-site productivity in weeks</span></li>
-        <li><span class="check">✓</span><span class="check-text">Financial: 2-4× faster ROI</span></li>
-        <li><span class="check">✓</span><span class="check-text">Strategic: Compete in growth markets</span></li>
-        <li><span class="check">✓</span><span class="check-text">Risk: Quality + agility</span></li>
-      </ul>
-    </div>
-  </div>
+  <section class="col col-teal">
+    <h2>KAVIA Solution</h2>
+    <ul>
+      <li>⏩ Accelerated Learning: 2–4 weeks onboarding, parallel deployment</li>
+      <li>💡 Innovation Adoption: best practices, consistent standards</li>
+      <li>📊 Faster Development: 50%+ productivity, eliminate bottlenecks</li>
+    </ul>
+  </section>
+
+  <section class="col col-blue">
+    <h2>Business Impact</h2>
+    <ul class="checks">
+      <li>✓ Operational: Multi-site productivity in weeks</li>
+      <li>✓ Financial: 2–4× faster ROI</li>
+      <li>✓ Strategic: Compete in growth markets</li>
+      <li>✓ Risk: Quality + agility</li>
+    </ul>
+  </section>
 </div>
