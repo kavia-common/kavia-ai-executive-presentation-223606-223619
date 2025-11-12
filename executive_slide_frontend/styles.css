@@ -32,8 +32,8 @@
 /* Executive Title Block */
 .exec-title {
   display: grid;
-  gap: 10px;
-  margin: 0 0 18px 0; /* normalize to avoid margin collapse drift */
+  gap: 8px; /* slightly tighter title spacing */
+  margin: 0 0 14px 0; /* reduce bottom margin to lower overall height */
 }
 .exec-title-text {
   margin: 0;
@@ -64,7 +64,7 @@
   background: var(--bg);
   border: 1px solid var(--divider);
   border-radius: var(--exec-radius);
-  padding: 16px 18px 18px 18px;
+  padding: 14px 16px 16px 16px; /* -12% approx */
   box-shadow: var(--exec-card-shadow);
 
   /* Equal height behavior within grid cell */
@@ -78,8 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 4px;
-  margin-bottom: 6px;
+  padding-bottom: 3px; /* slightly tighter */
+  margin-bottom: 5px;  /* slightly tighter */
   border-bottom: 1px solid var(--divider); /* subtle separator */
   flex: 0 0 auto; /* do not stretch */
 }
@@ -105,7 +105,7 @@ ul, ol {
 .exec-rows {
   /* Grid enforces uniform spacing and parallel alignment across columns */
   display: grid;
-  gap: 8px;
+  gap: 7px; /* slightly reduce row gaps */
   margin: 0;
   padding: 0;
 
@@ -114,21 +114,21 @@ ul, ol {
   align-content: start;
 
   /* Set a baseline min-height so all columns align by rows */
-  min-height: 196px;
+  min-height: 176px; /* -10% */
 }
 
 /* Individual row with icon + text (no <li>) */
 .exec-row {
   position: relative;
   display: grid;
-  grid-template-columns: 22px 1fr;
+  grid-template-columns: 20px 1fr; /* slightly narrower icon column */
   align-items: start;
   gap: 6px;
 
   /* Text styling */
   color: #000;
   font-size: clamp(13px, 0.98vw, 15px);
-  line-height: 1.4;
+  line-height: 1.38; /* marginally tighter line height */
 }
 
 /* Icon cell via pseudo-element on the row */
@@ -137,8 +137,8 @@ ul, ol {
   display: grid;
   place-items: center;
   color: var(--brand-color);
-  width: 22px;
-  height: 22px;
+  width: 20px;  /* match tighter grid column */
+  height: 20px; /* slightly smaller icon box */
   line-height: 1;
   font-weight: 700;
 }
@@ -152,27 +152,27 @@ ul, ol {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 200px;
+  min-height: 182px; /* -9% */
 }
 
 /* Icon glyph assignments */
-.icon-up::before    { content: "▲"; font-size: 13px; }
-.icon-gear::before  { content: "⚙"; font-size: 15px; }
-.icon-bolt::before  { content: "⚡"; font-size: 15px; }
-.icon-ff::before    { content: "⏩"; font-size: 15px; }
-.icon-bulb::before  { content: "💡"; font-size: 15px; }
-.icon-chart::before { content: "📊"; font-size: 15px; }
+.icon-up::before    { content: "▲"; font-size: 12px; }
+.icon-gear::before  { content: "⚙"; font-size: 14px; }
+.icon-bolt::before  { content: "⚡"; font-size: 14px; }
+.icon-ff::before    { content: "⏩"; font-size: 14px; }
+.icon-bulb::before  { content: "💡"; font-size: 14px; }
+.icon-chart::before { content: "📊"; font-size: 14px; }
 
 /* Checkmark variant for Business Impact */
-.exec-rows.checks { min-height: 196px; }
+.exec-rows.checks { min-height: 176px; }
 .exec-row.check::before {
   content: "✓";
   color: #fff;
-  font-size: 11px;
+  font-size: 10px; /* slightly smaller to fit tighter row height */
   background: var(--brand-color);
   border-radius: 999px;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   place-items: center;
   margin-top: 2px;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-color) 18%, #0000);
