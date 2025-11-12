@@ -33,7 +33,7 @@
 .exec-title {
   display: grid;
   gap: 10px;
-  margin-bottom: 18px;
+  margin: 0 0 18px 0; /* normalize to avoid margin collapse drift */
 }
 .exec-title-text {
   margin: 0;
@@ -54,9 +54,9 @@
 /* Three balanced columns grid */
 .exec-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--exec-gutter);
-  align-items: start;
+  align-items: stretch; /* ensure cards stretch to equal height per row */
 }
 
 /* Executive cards (soft border + subtle shadow) */
@@ -66,21 +66,29 @@
   border-radius: var(--exec-radius);
   padding: 16px 18px 18px 18px;
   box-shadow: var(--exec-card-shadow);
+
+  /* Equal height behavior within grid cell */
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* fill the grid track height */
 }
+
+/* Header with consistent sizing and non-growing behavior */
 .exec-card-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Adjust spacing to harmonize with 20% smaller titles */
   padding-bottom: 4px;
   margin-bottom: 6px;
   border-bottom: 1px solid var(--divider); /* subtle separator */
+  flex: 0 0 auto; /* do not stretch */
 }
+
+/* Title: keep brand color, clamp size */
 .exec-card-title {
   margin: 0;
   color: var(--brand-color); /* keep titles in brand color as requested */
   font-weight: 700;
-  /* Reduce header size by ~20% per request */
   font-size: clamp(12px, 0.88vw, 13px);
   letter-spacing: -0.005em;
   line-height: 1.2;
@@ -91,19 +99,23 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
+  /* Use grid for uniform vertical rhythm; let it occupy remaining space */
   display: grid;
-  /* Tighter gap to maintain overall rhythm with smaller headers */
-  gap: 5px; /* grid gutter for items */
+  gap: 8px; /* consistent inter-item spacing to prevent drift */
+  flex: 1 1 auto; /* stretch to fill available height */
+  align-content: start; /* keep items anchored to top */
+  min-height: 180px; /* consistent body height across cards to align bullets */
 }
+
+/* Normalize bullet items for alignment */
 .exec-points li {
   position: relative;
-  /* Slightly reduce indent to maintain visual balance with smaller icon/text */
   padding-left: 25px;
-  /* Maintain readability while compacting the vertical rhythm */
-  line-height: 1.4;
-  color: #000;           /* bullets in black */
-  /* Keep prior bullet text size for readability */
-  font-size: clamp(13px, 0.98vw, 15px); /* improved scale */
+  line-height: 1.4;         /* normalized line height */
+  margin: 0;                /* prevent UA default margins causing drift */
+  color: #000;              /* bullets text in black */
+  font-size: clamp(13px, 0.98vw, 15px);
 }
 
 /* Icon system: brand colored icons */
@@ -117,11 +129,26 @@
   place-items: center;
   color: var(--brand-color); /* #F26A1C */
 }
+
+/* Optional footer area if needed in future: keep from stretching */
+.exec-card-foot {
+  margin-top: 10px;
+  flex: 0 0 auto;
+}
 /* Defensive: any icon elements inside card headers stay brand color */
 .exec-card-head [class*="icon"],
 .exec-card-head svg,
 .exec-card-head i {
   color: var(--brand-color);
+}
+
+/* Card body stretches and maintains consistent minimum height */
+.exec-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 200px; /* baseline consistent body height to align bullets */
 }
 
 /* Specific symbolic icons using pseudo-elements */
@@ -133,11 +160,15 @@
 .icon-chart::before { content: "📊"; font-size: 15px; top: 2px; }
 
 /* Checkmarks for Business Impact: brand-colored filled circle */
+.exec-points.checks {
+  /* Slightly larger min-height to account for potential 4th bullet while keeping parallel alignment */
+  min-height: 196px;
+}
+
 .exec-points.checks li::before {
   content: "✓";
   color: #fff;
   font-weight: 900;
-  /* Slightly smaller to match reduced list text */
   font-size: 11px;
   background: var(--brand-color);
   border-radius: 999px;
@@ -164,6 +195,7 @@
 @media (max-width: 1024px) {
   .exec-grid {
     grid-template-columns: 1fr;
+    align-items: stretch; /* keep card stretch behavior when single column */
   }
 }
 
